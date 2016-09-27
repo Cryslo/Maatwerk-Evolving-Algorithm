@@ -15,9 +15,8 @@ namespace Test_text_files
             lines.Add("left");
             lines.Add("right");
             lines.Add("up");
-            File.WriteAllLines(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\lines.txt", lines);
+            File.WriteAllLines(@"C:\Users\Luuk\Dropbox\Maatwerk Proftaakgroep\Textfile\Lines.txt", lines);
 
-            
         }
     }
 }
