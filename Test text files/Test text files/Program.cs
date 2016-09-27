@@ -12,11 +12,25 @@ namespace Test_text_files
         static void Main(string[] args)
         {
             List<string> lines = new List<string>();
-            lines.Add("left");
-            lines.Add("right");
-            lines.Add("up");
-            File.WriteAllLines(@"C:\Users\Luuk\Dropbox\Maatwerk Proftaakgroep\Textfile\Lines.txt", lines);
-
+            while (0 == 0)
+            {
+                ConsoleKeyInfo keyinfo;
+                keyinfo = Console.ReadKey();
+                if (keyinfo.Key == ConsoleKey.A) lines.Add("left");
+                if (keyinfo.Key == ConsoleKey.D) lines.Add("right");
+                if (keyinfo.Key == ConsoleKey.W) lines.Add("up");
+                if (keyinfo.Key == ConsoleKey.Enter)
+                {
+                  File.WriteAllLines(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Lines.txt", lines);
+                }
+                if (keyinfo.Key == ConsoleKey.Backspace)
+                {
+                    lines.Clear();
+                    Console.Clear();
+                }
+            }
+           
+            
         }
     }
 }

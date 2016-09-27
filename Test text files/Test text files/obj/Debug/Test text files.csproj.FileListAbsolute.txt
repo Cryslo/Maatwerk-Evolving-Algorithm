@@ -4,3 +4,9 @@ c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text fi
 c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.csprojResolveAssemblyReference.cache
 c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.exe
 c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.pdb
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\bin\Debug\Test text files.exe.config
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\obj\Debug\Test text files.exe
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\obj\Debug\Test text files.pdb
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\bin\Debug\Test text files.exe
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\bin\Debug\Test text files.pdb
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Test text files\Test text files\obj\Debug\Test text files.csprojResolveAssemblyReference.cache
