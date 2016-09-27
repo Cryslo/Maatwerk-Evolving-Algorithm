@@ -1,0 +1,6 @@
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\bin\Debug\Test text files.exe.config
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\bin\Debug\Test text files.exe
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\bin\Debug\Test text files.pdb
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.csprojResolveAssemblyReference.cache
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.exe
+c:\users\luuk\documents\visual studio 2015\Projects\Test text files\Test text files\obj\Debug\Test text files.pdb
