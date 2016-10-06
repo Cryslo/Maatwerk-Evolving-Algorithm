@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
-namespace Brute_Force
+namespace brute_Force_class
 {
-    class Program
+    public class AI 
     {
-
-        static string Main(int score)
+        string GenerateMovement(int score)
         {
             int prevscore = 0;
             int milliseconds = 200;
@@ -24,17 +22,8 @@ namespace Brute_Force
             Toetsen.Add("upleft");
             List<string> combos = new List<string>();
             List<string> combostemp = new List<string>();
-            while (dead == false)
-            {
-                combostemp.Add(Toetsen[r.Next(0, 5)]);
-                File.WriteAllLines(System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Lines.txt", combostemp);
-                Task.Delay(milliseconds);
-                if (score >= prevscore)
-                {
-                    combos = combostemp;
-                    prevscore = score;
-                }
-            }
+            combostemp.Add(Toetsen[r.Next(0, 5)]);
+            return combostemp[0];
         }
     }
 }
