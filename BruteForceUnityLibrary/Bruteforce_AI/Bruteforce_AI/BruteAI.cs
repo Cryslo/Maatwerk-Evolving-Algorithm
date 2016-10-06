@@ -9,13 +9,8 @@ namespace Bruteforce_AI
         static List<Button> combos = new List<Button>();
         static List<Button> combostemp = new List<Button>();
         static float prevscore = 0;
-        public static List<Button> GenerateMovement(float score)
+        public static List<Button> GenerateMovement()
         {
-            if(score > prevscore)
-            {
-                prevscore = score;
-                combos = combostemp;
-            }
             combostemp.Clear();
             Random r = new Random();
             List<string> Toetsen = new List<string>();
@@ -29,8 +24,16 @@ namespace Bruteforce_AI
             combostemp.Add(btn);
             return combostemp;
         }
-
+        public static void UpdateScore(float score)
+        {
+            if (score > prevscore)
+            {
+                prevscore = score;
+                combos = combostemp;
+            }
+        }
     }
+
     public class Button
     {
         public string cmd;
