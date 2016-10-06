@@ -33,8 +33,8 @@ namespace Bruteforce_AI
     }
     public class Button
     {
-        string cmd;
-        int presstime;
+        public string cmd;
+        public int presstime;
 
         //Constructor
         public Button(string cmd, int presstime)
