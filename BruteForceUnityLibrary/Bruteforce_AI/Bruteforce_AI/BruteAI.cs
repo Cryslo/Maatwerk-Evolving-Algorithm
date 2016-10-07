@@ -6,10 +6,10 @@ namespace Bruteforce_AI
 {
     public class BruteAI
     {
-        static List<Button> combos = new List<Button>();
-        static List<Button> combostemp = new List<Button>();
-        static float prevscore = 0;
-        public static List<Button> GenerateMovement()
+        public List<Button> combos = new List<Button>();
+        public List<Button> combostemp = new List<Button>();
+        float prevscore = 0;
+        public List<Button> GenerateMovement()
         {
             combostemp.Clear();
             Random r = new Random();
@@ -17,19 +17,23 @@ namespace Bruteforce_AI
             Toetsen.Add("left");
             Toetsen.Add("right");
             Toetsen.Add("up");
-            Toetsen.Add("upright");
-            Toetsen.Add("upleft");
-            Button btn = new Button(Toetsen[r.Next(0, 5)], r.Next(1, 4));
-            combostemp = combos;
+            Button btn = new Button(Toetsen[r.Next(0, 3)], r.Next(1, 4));
+            foreach (Button item in combos)
+            {
+                combostemp.Add(item);
+            }
             combostemp.Add(btn);
             return combostemp;
         }
-        public static void UpdateScore(float score)
+        public void UpdateScore(float score)
         {
             if (score > prevscore)
             {
                 prevscore = score;
-                combos = combostemp;
+                foreach (Button item in combostemp)
+                {
+                    combos.Add(item);
+                }
             }
         }
     }
