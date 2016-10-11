@@ -9,11 +9,23 @@ namespace Bruteforce_AI
         public List<Button> combos = new List<Button>();
         public List<Button> combostemp = new List<Button>();
         float prevscore = 0;
+        float score = 0;
         float prevtime;
+        int timer = 0;
+        bool receivescore = false;
         public List<Button> GenerateMovement()
         {
-            combostemp.Clear();
             Random r = new Random();
+            if (score == prevscore && receivescore == true){
+                timer++;
+                if(timer >= 2)
+                {
+                    combos[r.Next(0, combos.Count)].presstime = r.Next(1, 4);
+                    timer = 0;
+                }
+            }
+            combostemp.Clear();
+            
             List<string> Toetsen = new List<string>();
             Toetsen.Add("left");
             Toetsen.Add("right");
@@ -32,6 +44,7 @@ namespace Bruteforce_AI
             {
                 prevscore = score;
                 prevtime = time;
+                receivescore = true;
                 combos.Clear();
                 foreach (Button item in combostemp)
                 {
