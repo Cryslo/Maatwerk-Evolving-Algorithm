@@ -6,26 +6,48 @@ namespace Bruteforce_AI
 {
     public class BruteAI
     {
+        public List<Button> iterations = new List<Button>();
         public List<Button> combos = new List<Button>();
         public List<Button> combostemp = new List<Button>();
         float prevscore = 0;
         float score = 0;
         float prevtime;
         int timer = 0;
+        bool presschange = false;
         bool receivescore = false;
         public List<Button> GenerateMovement()
         {
             Random r = new Random();
-            if (score == prevscore && receivescore == true){
+            if (score == prevscore && receivescore == true)
+            {
                 timer++;
-                if(timer >= 2)
+                if (timer >= 3)
                 {
+                    foreach (Button item in combos) iterations.Add(item);
                     combos[r.Next(0, combos.Count)].presstime = r.Next(1, 4);
+                    combos[r.Next(0, combos.Count)].jump = Convert.ToBoolean(r.Next(0, 1));
                     timer = 0;
+                    presschange = true;
+                    return combos;
+                }
+                else
+                {
+                    genkey();
+                    return combostemp;
                 }
             }
-            combostemp.Clear();
+            else
+            {
+                genkey();
+                return combostemp;
+
+            }
             
+        }
+        public void genkey()
+        {
+            combostemp.Clear();
+            Random r = new Random();
             List<string> Toetsen = new List<string>();
             Toetsen.Add("left");
             Toetsen.Add("right");
@@ -35,11 +57,23 @@ namespace Bruteforce_AI
                 combostemp.Add(item);
             }
             combostemp.Add(btn);
-            return combostemp;
         }
         public void UpdateScore(float score, float time)
         {
-            if (score > prevscore)
+            if (presschange == true)
+            {
+                if(score > prevscore)
+                {
+                    presschange = false;
+                }
+                else
+                {
+                    presschange = false;
+                    combos.Clear();
+                    foreach (Button item in iterations) combos.Add(item);
+                }
+            }
+            else if (score > prevscore)
             {
                 prevscore = score;
                 prevtime = time;
@@ -63,7 +97,8 @@ namespace Bruteforce_AI
         public Button(string cmd, int presstime, bool jump)
         {
             this.cmd = cmd;
-            this.presstime = presstime;
+            if(jump == true) { this.presstime = 1; }
+            else { this.presstime = presstime; }
             this.jump = jump;
         }
 
