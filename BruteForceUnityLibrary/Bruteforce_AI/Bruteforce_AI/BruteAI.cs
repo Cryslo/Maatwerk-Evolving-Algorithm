@@ -25,7 +25,7 @@ namespace Bruteforce_AI
                 {
                     foreach (Button item in combos) iterations.Add(item);
                     combos[r.Next(0, combos.Count)].presstime = r.Next(1, 4);
-                    combos[r.Next(0, combos.Count)].jump = Convert.ToBoolean(r.Next(0, 1));
+                    combos[r.Next(0, combos.Count)].jump = Convert.ToBoolean(r.Next(0, 2));
                     timer = 0;
                     presschange = true;
                     return combos;
@@ -51,7 +51,7 @@ namespace Bruteforce_AI
             List<string> Toetsen = new List<string>();
             Toetsen.Add("left");
             Toetsen.Add("right");
-            Button btn = new Button(Toetsen[r.Next(0, 2)], r.Next(1, 4), Convert.ToBoolean(r.Next(0, 1)));
+            Button btn = new Button(Toetsen[r.Next(0, 2)], GetRandomNumber(0,3), Convert.ToBoolean(r.Next(0, 2)));
             foreach (Button item in combos)
             {
                 combostemp.Add(item);
@@ -85,16 +85,21 @@ namespace Bruteforce_AI
                 }
             }
         }
+        public double GetRandomNumber(double minimum, double maximum)
+        {
+            Random random = new Random();
+            return random.NextDouble() * (maximum - minimum) + minimum;
+        }
     }
 
     public class Button
     {
         public string cmd;
-        public int presstime;
+        public double presstime;
         public bool jump;
 
         //Constructor
-        public Button(string cmd, int presstime, bool jump)
+        public Button(string cmd, double presstime, bool jump)
         {
             this.cmd = cmd;
             if(jump == true) { this.presstime = 1; }
