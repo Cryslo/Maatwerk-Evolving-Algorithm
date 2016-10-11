@@ -29,7 +29,6 @@ namespace Bruteforce_AI
             List<string> Toetsen = new List<string>();
             Toetsen.Add("left");
             Toetsen.Add("right");
-            Toetsen.Add("up");
             Button btn = new Button(Toetsen[r.Next(0, 3)], r.Next(1, 4), Convert.ToBoolean(r.Next(0, 1)));
             foreach (Button item in combos)
             {
