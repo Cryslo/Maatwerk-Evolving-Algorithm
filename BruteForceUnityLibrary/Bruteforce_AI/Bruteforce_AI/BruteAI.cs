@@ -22,7 +22,7 @@ namespace Bruteforce_AI
             if (score < prevscore)
             {
                 failtimer++;
-                if(failtimer == 12)
+                if(failtimer == 4)
                 {
                     failtimer = 0;
                     combos.Remove(combos[combos.Count-1]);
