@@ -13,11 +13,25 @@ namespace Bruteforce_AI
         float score = 0;
         float prevtime;
         int timer = 0;
+        int failtimer = 0;
         bool presschange = false;
         bool receivescore = false;
         public List<Button> GenerateMovement()
         {
             Random r = new Random();
+            if (score < prevscore)
+            {
+                failtimer++;
+                if(failtimer == 12)
+                {
+                    failtimer = 0;
+                    combos.Remove(combos[combos.Count-1]);
+                }
+            }
+            else
+            {
+
+            }
             if (score == prevscore && receivescore == true)
             {
                 timer++;
