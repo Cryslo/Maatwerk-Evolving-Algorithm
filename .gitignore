@@ -49,3 +49,6 @@ Temporary Items
 # C# files
 .suo
 .cache
+*.dll
+BruteForceUnityLibrary/Bruteforce_AI/Bruteforce_AI/obj/Debug/Bruteforce_AI.pdb
+*.cache
