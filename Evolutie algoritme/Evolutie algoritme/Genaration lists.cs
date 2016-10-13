@@ -8,19 +8,22 @@ namespace Evolutie_algoritme
 {
     public class Genaration_lists : EvolutieAI
     {
-        List<List<List<Button>>> Genarations;
+        
+        List<Genaration> Genarations;
         List<Button> AlphaSpecies;
+        
         int gencounter = 0;
         int previtem = 0;
         int ScoreCounter;
 
-        public List<List<List<Button>>> AddButton()
+        public List<Genaration> AddButton()
         {
+            Genaration Gen = new Genaration(gencounter);
             for (int i = 0; i < 4; i++)
             {
-                Genarations[gencounter].Add(GenerateMovement(Genarations[gencounter][i]));
+                Gen.List.Add(GenerateMovement(Gen.List[i]));
             }
-
+            Genarations.Add(Gen);
             return Genarations;
         }
         public void CreateGen(List<int> Score)
@@ -30,9 +33,11 @@ namespace Evolutie_algoritme
                 AlphaSpecies.Add(item);
             }
             Gencounter();
+            Genaration Gen = new Genaration(gencounter);
             for (int i = 0; i < 4; i++)
             {
-                Genarations[gencounter].Add(AlphaSpecies);
+                Gen.List.Add(AlphaSpecies);
+                Genarations.Add(Gen);
             }
 
         }
@@ -48,7 +53,7 @@ namespace Evolutie_algoritme
                 }
                 x++;
             }
-            return Genarations[gencounter][ScoreCounter];
+            return Genarations[gencounter].List[ScoreCounter];
         }
         public int Gencounter()
         {
