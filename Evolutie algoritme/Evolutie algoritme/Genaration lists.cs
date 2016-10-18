@@ -8,23 +8,38 @@ namespace Evolutie_algoritme
 {
     public class Genaration_lists : EvolutieAI
     {
-        
-        List<Genaration> Genarations;
+
+        public List<Genaration> Genarations { get; set; }
         List<Button> AlphaSpecies;
-        
+
         int gencounter = 0;
         int previtem = 0;
         int ScoreCounter;
 
         public List<Genaration> AddButton()
         {
-            Genaration Gen = new Genaration(gencounter);
-            for (int i = 0; i < 4; i++)
+            List<Button> buttonlist = new List<Button>();
+            List<Genaration> genlist = new List<Genaration>();
+            List<List<Button>> list = new List<List<Button>>();
+            Genaration Gen = new Genaration(list, gencounter);
+            if (Gen.List.Count == 0)
             {
-                Gen.List.Add(GenerateMovement(Gen.List[i]));
+                for (int i = 0; i < 3; i++)
+                {
+                    list.Add(GenerateMovement());
+                    Gen.List.Add(list[i]);
+                }    
             }
-            Genarations.Add(Gen);
-            return Genarations;
+            else {
+                for (int i = 0; i < 4; i++)
+                {
+                    Gen.List.Add(GenerateMovement(Gen.List[i]));
+                }
+
+            }
+            genlist.Add(Gen);
+            Genarations = genlist;
+            return genlist;
         }
         public void CreateGen(List<int> Score)
         {

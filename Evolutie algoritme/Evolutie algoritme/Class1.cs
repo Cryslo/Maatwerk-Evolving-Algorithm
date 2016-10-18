@@ -14,6 +14,7 @@ namespace Evolutie_algoritme
         float score = 0;
         bool presschange = false;
         bool receivescore = false;
+
         public List<Button> GenerateMovement(List<Button> list)
         {
             combostemp.Clear();
@@ -29,7 +30,18 @@ namespace Evolutie_algoritme
             combostemp.Add(btn);
             return combostemp;
         }
-    
+        public List<Button> GenerateMovement()
+        {
+            combostemp.Clear();
+            Random r = new Random();
+            List<string> Toetsen = new List<string>();
+            Toetsen.Add("left");
+            Toetsen.Add("right");
+            Button btn = new Button(Toetsen[r.Next(0, 2)], GetRandomNumber(0, 3), Convert.ToBoolean(r.Next(0, 2)));
+            combostemp.Add(btn);
+            return combostemp;
+        }
+
         public double GetRandomNumber(double minimum, double maximum)
         {
             Random random = new Random();

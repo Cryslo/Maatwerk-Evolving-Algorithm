@@ -1,1 +1,6 @@
 c:\users\luuk\documents\visual studio 2015\Projects\Evolutie algoritme\Evolutie algoritme\obj\Debug\Evolutie algoritme.csprojResolveAssemblyReference.cache
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Evolutie algoritme\Evolutie algoritme\bin\Debug\Evolutie algoritme.dll
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Evolutie algoritme\Evolutie algoritme\bin\Debug\Evolutie algoritme.pdb
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Evolutie algoritme\Evolutie algoritme\obj\Debug\Evolutie algoritme.dll
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Evolutie algoritme\Evolutie algoritme\obj\Debug\Evolutie algoritme.pdb
+C:\Users\Luuk\Documents\GitHub\Maatwerk-Evolving-Algorithm\Evolutie algoritme\Evolutie algoritme\obj\Debug\Evolutie algoritme.csprojResolveAssemblyReference.cache
