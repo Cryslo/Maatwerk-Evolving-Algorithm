@@ -25,7 +25,7 @@ namespace Bruteforce_AI
             if (score < prevscore)
             {
                 failtimer++;
-                if(failtimer == 5)
+                if(failtimer == 20)
                 {
                     failtimer = 0;
                     if (combos.Count == 1)
@@ -94,6 +94,7 @@ namespace Bruteforce_AI
         }
         public void UpdateScore(float score, float time)
         {
+            this.score = score;
             if (presschange == true)
             {
                 if(score > prevscore)
@@ -122,6 +123,12 @@ namespace Bruteforce_AI
                     combos.Add(item);
                 }
             }
+        }
+        public string getNum()
+        {
+            string s = "";
+            s = "Prevscore/score: " + prevscore.ToString() + " " + score.ToString() + " Failtimer: " + failtimer.ToString();
+            return s;
         }
         public double GetRandomNumber(double minimum, double maximum)
         {
