@@ -21,25 +21,25 @@ namespace Bruteforce_AI
         public List<Button> GenerateMovement()
         {
             Random r = new Random();
-            if (score <= prevscore)
+            if (score < prevscore && combos.Count > 0)
             {
                 failtimer++;
                 if(failtimer >= 5)
                 {
                     if (combos.Count == 1)
                     {
-                        prevscore = 0;
-                        combos[combos.Count - 1].presstime = GetRandomNumber(0, 3);
+                        combos[combos.Count -1].presstime = GetRandomNumber(0, 3);
                     }
                     else
                     {
-                        prevscore = backupscore;
                         combos.Remove(combos[combos.Count - 1]);
                     }
+                    prevscore = 0;
                     failtimer = 0;
                 }
+                return combos;
             }
-            if (score == prevscore && receivescore == true)
+            else if (score == prevscore && receivescore == true)
             {
                 failtimer = 0;
                 timer++;
@@ -49,7 +49,7 @@ namespace Bruteforce_AI
                     combos[r.Next(0, combos.Count)].presstime = r.Next(1, 4);
                     combos[r.Next(0, combos.Count)].jump = Convert.ToBoolean(r.Next(0, 2));
                     timer = 0;
-                    prevscore = backupscore;
+                    prevscore = 0;
                     return combos;
                 }
                 else
@@ -93,7 +93,7 @@ namespace Bruteforce_AI
         public void UpdateScore(float score, float time)
         {
             this.score = score;
-            if (score >= prevscore)
+            if (score > prevscore)
             {
                 backupscore = prevscore;
                 prevscore = score;
@@ -107,6 +107,14 @@ namespace Bruteforce_AI
                 {
                     combos.Add(item);
                 }
+            }
+            if (score == prevscore)
+            {
+                prevscore = score;
+                prevtime = time;
+                keycount = 0;
+                jump = 0;
+                failtimer = 0;
             }
         }
         public string getNum()
