@@ -17,17 +17,15 @@ namespace Bruteforce_AI
         int failtimer = 0;
         int keycount = 0;
         int jump = 0;
-        bool presschange = false;
         bool receivescore = false;
         public List<Button> GenerateMovement()
         {
             Random r = new Random();
-            if (score < prevscore)
+            if (score <= prevscore)
             {
                 failtimer++;
-                if(failtimer == 20)
+                if(failtimer >= 5)
                 {
-                    failtimer = 0;
                     if (combos.Count == 1)
                     {
                         prevscore = 0;
@@ -38,6 +36,7 @@ namespace Bruteforce_AI
                         prevscore = backupscore;
                         combos.Remove(combos[combos.Count - 1]);
                     }
+                    failtimer = 0;
                 }
             }
             if (score == prevscore && receivescore == true)
@@ -51,7 +50,6 @@ namespace Bruteforce_AI
                     combos[r.Next(0, combos.Count)].jump = Convert.ToBoolean(r.Next(0, 2));
                     timer = 0;
                     prevscore = backupscore;
-                    presschange = true;
                     return combos;
                 }
                 else
@@ -95,20 +93,7 @@ namespace Bruteforce_AI
         public void UpdateScore(float score, float time)
         {
             this.score = score;
-            if (presschange == true)
-            {
-                if(score > prevscore)
-                {
-                    presschange = false;
-                }
-                else
-                {
-                    presschange = false;
-                    combos.Clear();
-                    foreach (Button item in iterations) combos.Add(item);
-                }
-            }
-            else if (score > prevscore)
+            if (score >= prevscore)
             {
                 backupscore = prevscore;
                 prevscore = score;
